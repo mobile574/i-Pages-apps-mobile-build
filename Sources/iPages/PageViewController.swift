@@ -87,6 +87,10 @@ struct PageViewController: ControllerRepresentable {
     }
     
     func updateUIViewController(_ pageViewController: UIPageViewController, context: Context) {
+        guard currentPage < controllers.count else {
+            return
+        }
+        
         let previousPage = context.coordinator.parent.currentPage
         context.coordinator.parent = self
         
