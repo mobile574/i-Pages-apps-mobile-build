@@ -152,6 +152,18 @@ public struct iPages<Content: View>: View {
                     #endif
                 }
             }
+        }.background(background)
+    }
+    
+    @ViewBuilder
+    private var background: some View {
+        if #available(iOS 14.0, *) {
+            Rectangle()
+                .ignoresSafeArea()
+                .foregroundColor(.black)
+        } else {
+            Rectangle()
+                .foregroundColor(.black)
         }
     }
 }
